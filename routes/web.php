@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +17,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('master');
-});
-Route::get('/login', function () {
-    return view('auth/login');
-});
+    return view('home');
+})->name('home');
 
-Auth::routes();
+//login routes
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+//logout route
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+
 
 
 

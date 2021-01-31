@@ -14,9 +14,30 @@
         </li>
       </ul>
       <ul class="navbar-nav my-2 my-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Cart(0)</a>
-        </li>
+        @auth
+            <li class="nav-item">
+                <a class="nav-link" href="#">{{ auth()->user()->name }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Cart(0)</a>
+            </li>
+            <li class="nav-item">
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    <button type="submit" class="">Logout</button>
+                </form>
+            </li>
+        @endauth
+
+        @guest
+            <li class="nav-item">
+                <a class="nav-link" href=" {{ route('login') }} ">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">Register</a>
+            </li>
+        @endguest
+        
       </ul>
     </div>
 </nav>
