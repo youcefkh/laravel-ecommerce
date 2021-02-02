@@ -17,7 +17,9 @@
 <body>
     {{View::make('layouts/header')}}
 
-    @yield('content')
+    <div class="container">
+        @yield('content')
+    </div>
 
     {{View::make('layouts/footer')}}
 

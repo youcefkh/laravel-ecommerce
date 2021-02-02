@@ -22,7 +22,7 @@
                 <a class="nav-link" href="#">Cart(0)</a>
             </li>
             <li class="nav-item">
-                <form action="{{ route('logout') }}" method="post">
+                <form action="{{ route('logout') }}" method="post" class="logout">
                     @csrf
                     <button type="submit" class="">Logout</button>
                 </form>
