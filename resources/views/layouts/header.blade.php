@@ -1,3 +1,8 @@
+<?php
+  use App\Http\Controllers\ItemController;
+  $totalItems = ItemController::cartItems()->count()
+?>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light px-5 mb-5">
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,7 +32,7 @@
                 <a class="nav-link" href="#">{{ auth()->user()->name }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Cart(0)</a>
+                <a class="nav-link" href="#">Cart <span class="nbr_items">({{$totalItems}})</span></a>
             </li>
             <li class="nav-item">
                 <form action="{{ route('logout') }}" method="post" class="logout">

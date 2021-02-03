@@ -10,7 +10,11 @@
             <h5>Category :</h5> <p>{{$item->category}}</p> 
             <h3 class="text-secondary">{{$item->price}}$ </h3>
 
-            <button class="btn btn-primary w-50">Add to cart</button>
+            <form action=" {{route('add_to_cart')}} " method="POST" class="w-50">
+                @csrf
+                <input type="hidden" name="item_id" value="{{$item->id}}">
+                <button class="btn btn-primary w-100">Add to cart</button>
+            </form>
             <button class="btn btn-success w-50">Buy now</button>
         </div>
     </div>
