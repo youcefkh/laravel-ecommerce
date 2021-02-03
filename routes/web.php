@@ -20,6 +20,9 @@ use App\Http\Controllers\ItemController;
 Route::get('/', [ItemController::class, 'index'])->name('home');
 Route::get('/items/{id}', [ItemController::class, 'show'])->name('items.show');
 
+//search route
+Route::get('/search', [ItemController::class, 'search'])->name('search');
+
 //login routes
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);

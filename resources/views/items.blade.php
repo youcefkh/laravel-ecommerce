@@ -31,7 +31,12 @@
         </a>
     </div>
     <h2>Trending items</h2>
-    <div class="card-deck trending-items">
+    <div class="trending-items card-deck ">
+        @foreach ($items as $item)
+                <x-item :item="$item" />  
+        @endforeach
+    </div>
+{{--     <div class="card-deck trending-items">
         @foreach ($items as $item)
             <div class="card">
                 <a href=" {{ route('items.show', $item) }} ">
@@ -46,5 +51,5 @@
                 </div>
              </div>
         @endforeach
-    </div>
+    </div> --}}
 @endsection

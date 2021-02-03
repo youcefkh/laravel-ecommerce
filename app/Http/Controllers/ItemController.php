@@ -18,4 +18,11 @@ class ItemController extends Controller
         $item = Item::find($id);
         return view('showItem', ['item' => $item]);
     }
+
+    public function search(Request $req)
+    {
+        $items = Item::where('name', 'like', '%'.$req['query'].'%')->get();
+        
+        return view('search', ['items' => $items]);
+    }
 }
