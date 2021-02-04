@@ -17,7 +17,7 @@ class Item extends Model
         'gallery'
     ];
 
-    public function cart(){
+    /* public function cart(){
         return $this->belongsTo(Cart::class);
-    }
+    } */
 }

@@ -26,6 +26,9 @@ Route::get('/search', [ItemController::class, 'search'])->name('search');
 //add to cart route
 Route::post('/items/add-to-cart', [ItemController::class, 'addToCart'])->name('add_to_cart');
 
+//cart list route
+Route::get('/cart', [ItemController::class, 'cartList'])->name('cart');
+
 //login routes
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);

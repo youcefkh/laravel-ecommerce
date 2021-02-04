@@ -1,6 +1,8 @@
 <?php
   use App\Http\Controllers\ItemController;
-  $totalItems = ItemController::cartItems()->count()
+  if(auth()->user()){
+    $totalItems = ItemController::cartItems()->count();
+  }
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light px-5 mb-5">
@@ -32,7 +34,7 @@
                 <a class="nav-link" href="#">{{ auth()->user()->name }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Cart <span class="nbr_items">({{$totalItems}})</span></a>
+                <a class="nav-link" href="{{ route('cart') }}">Cart <span class="nbr_items">({{$totalItems}})</span></a>
             </li>
             <li class="nav-item">
                 <form action="{{ route('logout') }}" method="post" class="logout">

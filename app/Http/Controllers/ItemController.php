@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Item;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ItemController extends Controller
 {
@@ -45,5 +47,19 @@ class ItemController extends Controller
         $user_id = auth()->user()->id;
         $cartItems = Cart::where('user_id', $user_id)->get();
         return $cartItems;
+    }
+
+    public function cartList()
+    {   
+        $items = DB::table('cart')
+        ->join('items', 'cart.item_id', '=', 'items.id')
+        ->where('cart.user_id', auth()->user()->id)
+        ->select('items.*', 'cart.created_at')
+        ->get();
+
+        /* $items_id = Cart::where('user_id', auth()->user()->id)->get('item_id');
+        $items = Item::findMany($items_id); */
+        //return $items;
+        return view('cart', ['items' => $items]);
     }
 }
