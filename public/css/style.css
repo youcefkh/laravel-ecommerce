@@ -26,7 +26,18 @@ footer{
     bottom: 0;
     width: 100%;
 }
-
+.container{
+    position: relative;
+}
+.alert{
+    z-index: 999999999;
+    position: absolute;
+    top: -60px;
+    margin: 0;
+    width: 100%;
+    opacity: 0;
+    animation: alert 4s ease-in forwards;
+}
 /*start home page*/
 .search-input{
     width: 500px !important;
@@ -61,7 +72,7 @@ img.card-img-top {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 }
-.price{
+.card .price{
     display: inline-block;
     font-size: 1.1rem;
     text-align: center;
@@ -81,3 +92,24 @@ img.card-img-top {
     align-items: end;
 }
 /*end show item page*/
+
+/*start cart list page*/
+.table th:not(:nth-child(1)) {
+    width: 18%;
+}
+/*end cart list page*/
+
+@keyframes alert{
+    0%{
+        top: -60px;
+        opacity: 0;
+    }
+    20%, 90%{
+        top: -50px;
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        top: -60px;
+    }
+}

@@ -17,7 +17,7 @@
           <a class="nav-link" href="{{ route('home') }}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="{{ route('myOrders') }}"">Orders</a>
         </li>
         <li class="nav-item">
           <form class="form-inline" method="get" action=" {{route('search')}} ">
@@ -34,7 +34,7 @@
                 <a class="nav-link" href="#">{{ auth()->user()->name }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('cart') }}">Cart <span class="nbr_items">({{$totalItems}})</span></a>
+                <a class="nav-link" href="{{ route('cart') }}">Cart (<span class="nbr_items">{{$totalItems}}</span>)</a>
             </li>
             <li class="nav-item">
                 <form action="{{ route('logout') }}" method="post" class="logout">

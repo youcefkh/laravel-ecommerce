@@ -28,6 +28,10 @@ Route::post('/items/add-to-cart', [ItemController::class, 'addToCart'])->name('a
 
 //cart list route
 Route::get('/cart', [ItemController::class, 'cartList'])->name('cart');
+Route::post('/ajax', [ItemController::class, 'ajax'])->name('ajax');
+Route::get('/order', [ItemController::class, 'order'])->name('order');
+Route::post('/order', [ItemController::class, 'storeOrder']);
+Route::get('/myOrders', [ItemController::class, 'myOrders'])->name("myOrders");
 
 //login routes
 Route::get('/login', [LoginController::class, 'index'])->name('login');

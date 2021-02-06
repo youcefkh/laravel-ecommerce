@@ -1,5 +1,8 @@
 @extends('master')
 @section('content')
+    @if (Session::has('msg'))
+    <p class="alert alert-success">{{Session::get('msg')}}</p>
+    @endif
     <div class="row show-item">
         <div class="col-sm-6"> 
             <img src=" {{$item->gallery}} " alt="">
